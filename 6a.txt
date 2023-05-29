@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main()
+{
+
+int a[50],frames[10];
+int i,j,k,avail,n,no,count=0;
+
+printf("Enter the no of pages");
+scanf("%d",&n);
+printf("\nEnter the pages");
+for(i=1;i<=n;i++)
+scanf("%d",&a[i]);
+printf("Enter the frames");
+scanf("%d",&no);
+for(i=0;i<no;i++)
+frames[i]=-1;
+j=0;
+printf("\tref\tframes\n");
+for(i=1;i<=n;i++)
+{
+printf("%d\t\t",a[i]);
+avail=0;
+for(k=0;k<no;k++)
+if(frames[k]==a[i])
+avail=1;
+if(avail==0){
+frames[j]=a[i];
+j=(j+1)%no;
+count++;
+for(k=0;k<no;k++)
+printf("%d\t",frames[k]);
+
+
+
+}
+ printf("\n");
+
+
+}
+
+printf("fault=%d",count);
+
+
+}
